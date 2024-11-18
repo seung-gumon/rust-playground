@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "my_first_project"
+name = "rust-playground"
 version = "0.1.0"
