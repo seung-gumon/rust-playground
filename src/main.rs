@@ -1,24 +1,23 @@
-
-enum ThingsInTheSky {
-      Sun,
-      Moon,
-}
-
-fn create_sky_state(time : u8) -> ThingsInTheSky {
-      match time {
-            6..=18 => ThingsInTheSky::Sun,
-            _ => ThingsInTheSky::Moon,
-      }
-}
-
-fn check_sky_state(state : &ThingsInTheSky) {
-      match state {
-           ThingsInTheSky::Sun => println!("It's sunny!"),
-           ThingsInTheSky::Moon => println!("It's dark!"), 
-      }
+enum Star {
+      BrownDwarf = 10,
+      RedDwarf = 50,
+      YellowStar = 100,
+      RedGiant = 1000,
+      DeadStar
 }
 
 
 fn main() {
-      check_sky_state(&create_sky_state(20));
+      use Star::*;
+      let starvec = vec![BrownDwarf, RedDwarf, YellowStar, RedGiant, DeadStar];
+
+      for star in starvec {
+            match star as u32 {
+                  size if size <= 80 => println!("Not the biggest star : {}" , size),
+                  size if size >= 80 => println!("Pretty big star : {}", size),
+                  _ => println!("Some other star")
+            }
+      }
+
+      println!("The biggest star is : {}", DeadStar as u32);
 }
