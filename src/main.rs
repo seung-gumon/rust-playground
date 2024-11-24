@@ -1,10 +1,27 @@
-fn main() {
-      let mut counter = 5;
-      let my_number = loop {
-            counter += 1;
-            if counter % 53 == 3 {
-                  break counter;
+
+#[derive(Debug)]
+struct Animal {
+      age : u8,
+      animal_type : AnimalType,
+}
+
+#[derive(Debug)]
+enum AnimalType {
+      Cat,
+      Dog,
+}
+
+impl Animal {
+      fn new_cat(age : u8) -> Self { // function signature
+            Self {
+                  age,
+                  animal_type : AnimalType::Cat,
             }
-      };
-      print!("The number is: {}", my_number);
+      }
+}
+
+
+fn main() {
+      let my_animal = Animal::new_cat(10);
+      println!("{:?}", my_animal);
 }
