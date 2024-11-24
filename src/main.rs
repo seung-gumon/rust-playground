@@ -1,24 +1,10 @@
 fn main() {
-
-      let mut counter = 0;
-      let mut counter2 = 0;
-
-
-      'first_loop:loop {
-            println!("First loop: {}", counter);
+      let mut counter = 5;
+      let my_number = loop {
             counter += 1;
-
-            if counter == 10 {
-                  'second_loop:loop {
-                        println!("Second loop: {}", counter2);
-                        counter2 += 1;
-
-                        if counter2 == 10 {
-                              break 'first_loop;
-                        }
-                  }
+            if counter % 53 == 3 {
+                  break counter;
             }
-      }
-
-
+      };
+      print!("The number is: {}", my_number);
 }
